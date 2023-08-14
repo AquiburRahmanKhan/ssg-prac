@@ -1,0 +1,76 @@
+.navMenu {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.containerNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 2rem;
+  height: 90px;
+  padding: 1.2rem 3rem;
+}
+
+.navStart {
+  display: flex;
+  align-items: center;
+}
+
+.monstarLabLogo {
+  margin-right: 1.5rem;
+}
+
+.menu {
+  position: relative;
+  background: var(#fff);
+}
+
+.menuBar {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+}
+
+.menuBar .navLink {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+  padding: 0.3rem;
+  min-width: 60px;
+  margin: 0 0.6rem;
+}
+
+.dropdownContainer {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 30px;
+  margin-top: 30px;
+}
+
+.dropdownContainer:hover .dropdownContent {
+  display: block;
+}
+
+.dropdownContent {
+  position: absolute;
+  top: 30px;
+  display: none;
+  background-color: #fff;
+  border: 1px solid #eee;
+  width: 200px;
+}
+
+.dropdownContent ul {
+  list-style: none;
+  margin: 0;
+  padding: 20px 10px;
+}
+
+.dropdownContent li {
+  margin-bottom: 20px;
+}
+
+.dropdownContent li:last-child {
+  margin-bottom: 0;
+}

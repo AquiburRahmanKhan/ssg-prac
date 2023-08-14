@@ -1,8 +1,8 @@
 import React from "react";
-import faqs from "./faqs";
-import styles from "./styles.module.css";
+import styles from "./faqs.module.css";
 
-const FAQS = () => {
+const FAQS = ({ faqs }) => {
+  console.log(faqs);
   return (
     <section className={styles.faqs}>
       <div className="container">
@@ -11,13 +11,13 @@ const FAQS = () => {
             <h1>FAQS</h1>
           </div>
         </div>
-        {faqs.map((faq, index) => (
-          <div key={index} className="row">
+        {faqs.map((faq) => (
+          <div key={faq.sys.id} className="row">
             <div className="col col--12">
-              <h3>{faq.title}</h3>
+              <h3>{faq.fields.question}</h3>
             </div>
             <div className="col col--12">
-              <p>{faq.content}</p>
+              <p>{faq.fields.answer.content[0].content[0].value}</p>
             </div>
           </div>
         ))}

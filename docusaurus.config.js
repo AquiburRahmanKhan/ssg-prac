@@ -3,6 +3,10 @@
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const contentful = require("contentful");
+const SPACE_ID = "6g34jp3wrjgx";
+const CONTENT_DELIVERY_KEY = "a5ctpA-hqhPlfZCuwVULRGC3IqM2gwkgbi_NnGs2hWc";
+let client;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -50,6 +54,43 @@ const config = {
         },
       }),
     ],
+  ],
+
+  plugins: [
+    async function loadContentfulData(context, options) {
+      return {
+        name: "load-contentful-data",
+        async loadContent() {
+          client = contentful.createClient({
+            space: SPACE_ID,
+            accessToken: CONTENT_DELIVERY_KEY,
+            environment: "master",
+          });
+
+          const navigation = await client.getEntries({
+            content_type: "navigation",
+            include: 10,
+          });
+
+          const faq = await client.getEntries({
+            content_type: "faqList",
+            include: 10,
+          });
+
+          return {
+            navigation: navigation.items,
+            faqs: faq.items,
+          };
+        },
+        async contentLoaded({ content, actions }) {
+          const { setGlobalData } = actions;
+
+          // Set global data that can be used in any page
+          setGlobalData(content);
+        },
+        /* other lifecycle API */
+      };
+    },
   ],
 
   themeConfig:
