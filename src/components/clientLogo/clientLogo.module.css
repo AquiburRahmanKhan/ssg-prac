@@ -1,0 +1,19 @@
+.clientLogoContainer {
+  margin: 100px 0;
+}
+
+.clientLogoHeader {
+  text-align: center;
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+.listLogo {
+  list-style-type: none;
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+.listLogo li {
+  display: inline-block;
+}

@@ -5,7 +5,7 @@ const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const contentful = require("contentful");
 const SPACE_ID = "6g34jp3wrjgx";
-const CONTENT_DELIVERY_KEY = "a5ctpA-hqhPlfZCuwVULRGC3IqM2gwkgbi_NnGs2hWc";
+const CONTENT_DELIVERY_KEY = "";
 let client;
 
 /** @type {import('@docusaurus/types').Config} */
@@ -72,13 +72,25 @@ const config = {
             include: 10,
           });
 
+          const heroBannerData = await client.getEntries({
+            content_type: "heroBannerComponent",
+            include: 4,
+          });
+
+          const clientLogoData = await client.getEntries({
+            content_type: "clientLogoComponent",
+            include: 4,
+          });
+
           const faq = await client.getEntries({
             content_type: "faqList",
-            include: 10,
+            include: 4,
           });
 
           return {
             navigation: navigation.items,
+            heroBannerData: heroBannerData.items,
+            clientLogoData: clientLogoData.items,
             faqs: faq.items,
           };
         },

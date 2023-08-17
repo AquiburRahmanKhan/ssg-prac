@@ -1,0 +1,34 @@
+.heroBlock {
+  position: relative;
+  padding: 3rem;
+}
+.heroBlock .imgWrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+.heroBlock .imgWrapper img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.heroBlock .infoBlock {
+  position: absolute;
+  top: 80px;
+  background-color: #fff;
+}
+
+.cf:after,
+.cf:before {
+  content: " ";
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+.cf {
+  zoom: 1;
+}
